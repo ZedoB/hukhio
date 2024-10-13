@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:chat_app/core/constants/images/asset_images.dart';
+import 'package:chat_app/core/themes/styles.dart';
 import 'package:chat_app/features/auth/login/presentation/view/login.dart';
 import 'package:flutter/material.dart';
 
@@ -19,11 +21,11 @@ class _SplachScreenState extends State<SplachScreen> {
     super.initState();
 
     Timer(
-      Duration(seconds: 3),
+      const Duration(seconds: 3),
           () => Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => LoginPage(),
+          builder: (context) => const LoginPage(),
         ),
       ),
     );
@@ -33,7 +35,15 @@ class _SplachScreenState extends State<SplachScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Image.asset("assets/images/whatsapp.png",width: 100,height: 100,)
+        child: Column(
+          children: [
+            Image.asset(AssetImages.whatsAppIcon,width: 100,height: 100,),
+            const SizedBox(height:60),
+            Text('WhatsApp',style: Styles.textStyle24),
+            const SizedBox(height:60),
+            const Text('The best chat app for this century',style: TextStyle(color: Colors.blue))
+          ],
+        )
       ),
     );
   }
